@@ -1,4 +1,3 @@
-import { MenuActionEnum } from "./MenuActionEnum.ts";
 import { MenuAction } from "../lib/MenuAction.ts";
 
 export class JustAnAction extends MenuAction {
