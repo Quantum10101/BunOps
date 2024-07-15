@@ -14,6 +14,7 @@ export class MenuItem extends MenuAction {
 		this.menu([
 			{menuAction: MenuActionEnum.MainMenu, command: "mm"},
 			{menuAction: MenuActionEnum.JustAnAction, menuText: "do the stuff", data: {"hello": "world"}},
+			{menuAction: MenuActionEnum.LastMenu},
 		]);
 	}
 }
