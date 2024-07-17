@@ -6,6 +6,9 @@ export class JustAnAction extends MenuAction {
 	menuText: string = "Run Just an Action";
 	
 	action(data?: {[key: string]: any}): void {
+		this.menuSystem.data["stuff"] += this.menuSystem.data["stuff"].length - 5;
+		
+		console.log(this.menuSystem.data["stuff"]);
 		console.log("i do action now");
 		console.log(data);
 		

@@ -13,7 +13,8 @@ const menuSystem = new MenuSystem(
 		[MenuActionEnum.JustAnAction]: new JustAnAction(MenuActionEnum.JustAnAction),
 		[MenuActionEnum.MainMenu]: new MainMenu(MenuActionEnum.MainMenu),
 		[MenuActionEnum.MenuItem]: new MenuItem(MenuActionEnum.MenuItem),
-	}
+	},
+	{"stuff": "things"}
 );
 
 menuSystem.nextAction(MenuActionEnum.MainMenu);

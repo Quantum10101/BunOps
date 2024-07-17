@@ -5,13 +5,18 @@ export class MenuSystem {
 	menuActions: Record<MenuActionEnum, MenuAction>;
 	firstMenu: undefined|MenuActionEnum;
 	menuHistory: Array<MenuActionEnum> = new Array<MenuActionEnum>();
+	data: Record<string, any> = {};
 	
-	constructor(menuActions: Record<MenuActionEnum, MenuAction>) {
+	constructor(menuActions: Record<MenuActionEnum, MenuAction>, data?: Record<string, any>) {
 		for (let [_, value] of Object.entries(menuActions)) {
 			value.menuSystem = this;
 		}
 		
 		this.menuActions = menuActions;
+		
+		if (data !== undefined) {
+			this.data = data;
+		}
 	}
 	
 	nextAction(menuAction: MenuActionEnum, data?: {[key: string]: any}): void {
