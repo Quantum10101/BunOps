@@ -2,6 +2,13 @@ import readlineSync from "readline-sync";
 import { MenuActionEnum } from "../ops/MenuActionEnum.ts";
 import { MenuSystem } from "./MenuSystem.ts";
 
+export type MenuItem = {
+	menuAction: MenuActionEnum;
+	command?: string;
+	menuText?: string;
+	data?: {[key: string]: any}
+}
+
 export abstract class MenuAction {
 	menuActionEnum: MenuActionEnum;
 	menuSystem!: MenuSystem;
@@ -15,7 +22,7 @@ export abstract class MenuAction {
 	
 	abstract action(data?: {[key: string]: any}): void;
 	
-	menu(items: {menuAction: MenuActionEnum; command?: string; menuText?: string; data?: {[key: string]: any}}[]): void {
+	menu(items: MenuItem[]): void {
 		const commandCount: {[command: string]: number} = {};
 		const commandIncrement: {[command: string]: number} = {};
 		for (const item of items) {
