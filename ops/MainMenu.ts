@@ -1,5 +1,6 @@
 import { MenuActionEnum } from "./MenuActionEnum.ts";
 import { MenuAction } from "../lib/MenuAction.ts";
+import { cmd } from "../lib/cmd.ts";
 
 export class MainMenu extends MenuAction {
 	title: string = "Main Menu";
@@ -9,6 +10,7 @@ export class MainMenu extends MenuAction {
 	action(): void {
 		this.menuSystem.menuHistory.push(this.menuActionEnum);
 		
+		process.stdout.write(`${cmd.CLS}`);
 		process.stdout.write(`${this.title}\n\n`);
 		
 		this.menu([

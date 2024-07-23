@@ -11,7 +11,6 @@ export class MenuItem extends MenuAction {
 		this.menuSystem.menuHistory.push(this.menuActionEnum);
 		
 		process.stdout.write(`${cmd.CLS}`);
-		
 		process.stdout.write(`${this.title}\n\n`);
 		
 		process.stdout.write(`Color tests:\n`);

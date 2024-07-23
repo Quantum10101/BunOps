@@ -1,5 +1,7 @@
+import readlineSync from "readline-sync";
 import { MenuAction } from "../lib/MenuAction.ts";
 import { HelperOne } from "./HelperOne.ts";
+import { cmd } from "../lib/cmd.ts";
 
 export class JustAnAction extends MenuAction {
 	title: string = "Just an Action";
@@ -8,6 +10,8 @@ export class JustAnAction extends MenuAction {
 	
 	action(data?: {[key: string]: any}): void {
 		this.menuSystem.data["stuff"] += this.menuSystem.data["stuff"].length - 5;
+		
+		process.stdout.write(`${cmd.CLS}`);
 		
 		console.log(this.menuSystem.data["stuff"]);
 		console.log("i do action now");
@@ -18,6 +22,11 @@ export class JustAnAction extends MenuAction {
 		console.log(helperTwo.str);
 		
 		console.log(data);
+		
+		process.stdout.write("Press ENTER to continue.");
+		process.stdout.write(`${cmd.cursor.HIDE}`);
+		readlineSync.question();
+		process.stdout.write(`${cmd.cursor.SHOW}`);
 		
 		//this.menuSystem.nextAction(MenuActionEnum.MainMenu);
 		this.menuSystem.lastAction();

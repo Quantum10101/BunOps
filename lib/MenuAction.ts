@@ -47,13 +47,16 @@ export abstract class MenuAction {
 			if (item.command !== "") commandActions.set(item.command!, menuAction);
 		}
 		
+		for (const item of items) {
+			if (item.command !== "") process.stdout.write(item.command + ". ");
+			process.stdout.write(item.menuText + "\n");
+		}
+		
+		process.stdout.write("\n");
+		
 		let command: string;
 		do {
-			for (const item of items) {
-				if (item.command !== "") process.stdout.write(item.command + ". ");
-				process.stdout.write(item.menuText + "\n");
-			}
-			process.stdout.write("\nChoose Option: ");
+			process.stdout.write("Choose Option: ");
 			command = readlineSync.question();
 		} while(commandActions.has(command) === false);
 		
