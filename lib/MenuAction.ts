@@ -44,13 +44,13 @@ export abstract class MenuAction {
 			}
 			
 			const menuAction = this.menuSystem.menuActions[item.menuAction];
-			commandActions.set(item.command!, menuAction);
+			if (item.command !== "") commandActions.set(item.command!, menuAction);
 		}
 		
 		let command: string;
 		do {
 			for (const item of items) {
-				process.stdout.write(item.command + ". ");
+				if (item.command !== "") process.stdout.write(item.command + ". ");
 				process.stdout.write(item.menuText + "\n");
 			}
 			process.stdout.write("\nChoose Option: ");
