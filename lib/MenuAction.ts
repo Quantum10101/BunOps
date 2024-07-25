@@ -22,7 +22,7 @@ export abstract class MenuAction {
 	
 	abstract action(data?: {[key: string]: any}): void;
 	
-	menu(items: MenuItem[]): void {
+	menu(items: MenuItem[], showMenu = true, chooseText = "Choose Option"): void {
 		const commandCount: {[command: string]: number} = {};
 		const commandIncrement: {[command: string]: number} = {};
 		for (const item of items) {
@@ -47,16 +47,18 @@ export abstract class MenuAction {
 			if (item.command !== "") commandActions.set(item.command!, menuAction);
 		}
 		
-		for (const item of items) {
-			if (item.command !== "") process.stdout.write(item.command + ". ");
-			process.stdout.write(item.menuText + "\n");
+		if (showMenu === true) {
+			for (const item of items) {
+				if (item.command !== "") process.stdout.write(item.command + ". ");
+				process.stdout.write(item.menuText + "\n");
+			}
+			
+			process.stdout.write("\n");
 		}
-		
-		process.stdout.write("\n");
 		
 		let command: string;
 		do {
-			process.stdout.write("Choose Option: ");
+			process.stdout.write(`${chooseText}: `);
 			command = readlineSync.question();
 		} while(commandActions.has(command) === false);
 		
