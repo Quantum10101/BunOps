@@ -1,4 +1,3 @@
-import { type HistoryItem } from "../lib/MenuSystem.ts";
 import { MenuActionEnum } from "./MenuActionEnum.ts";
 import { MenuAction } from "../lib/MenuAction.ts";
 import { cmd } from "../lib/cmd.ts";

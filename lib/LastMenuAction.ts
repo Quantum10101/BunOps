@@ -1,4 +1,4 @@
-import { MenuAction } from "../lib/MenuAction.ts";
+import { MenuAction } from "./MenuAction.ts";
 
 export class LastMenuAction extends MenuAction {
 	title: string = "Last Menu";

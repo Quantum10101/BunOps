@@ -1,8 +1,8 @@
 import { MenuSystem } from "./lib/MenuSystem.ts";
 import { MenuActionEnum } from "./ops/MenuActionEnum.ts";
-import { EmptyAction } from "./ops/EmptyAction.ts";
-import { ExitAction } from "./ops/ExitAction.ts";
-import { LastMenuAction } from "./ops/LastMenuAction.ts";
+import { EmptyAction } from "./lib/EmptyAction.ts";
+import { ExitAction } from "./lib/ExitAction.ts";
+import { LastMenuAction } from "./lib/LastMenuAction.ts";
 import { JustAnAction } from "./ops/JustAnAction.ts";
 import { MainMenu } from "./ops/MainMenu.ts";
 import { MenuItem } from "./ops/MenuItem.ts";
