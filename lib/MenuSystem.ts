@@ -3,7 +3,7 @@ import { MenuActionEnum } from "../ops/MenuActionEnum.ts";
 
 export type HistoryItem = {
 	menuAction: MenuActionEnum;
-	data?: {[key: string]: any}
+	data?: Record<string, any>;
 }
 
 export class MenuSystem {
@@ -24,12 +24,12 @@ export class MenuSystem {
 		}
 	}
 	
-	nextAction(menuAction: MenuActionEnum, data?: {[key: string]: any}): void {
+	nextAction(menuAction: MenuActionEnum, data?: Record<string, any>): void {
 		if (this.firstMenu === undefined) this.firstMenu = {menuAction, data};
 		this.menuActions[menuAction].action(data);
 	}
 	
-	lastAction(data?: {[key: string]: any}): void {
+	lastAction(data?: Record<string, any>): void {
 		const lastAction = this.menuHistory.pop();
 		if (lastAction === undefined) {
 			if (this.firstMenu === undefined) throw Error("MenuSystem was set up, but never a call to nextAction");

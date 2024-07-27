@@ -6,7 +6,7 @@ export type MenuItem = {
 	menuAction: MenuActionEnum;
 	command?: string;
 	menuText?: string;
-	data?: {[key: string]: any}
+	data?: Record<string, any>;
 }
 
 export abstract class MenuAction {
@@ -20,7 +20,7 @@ export abstract class MenuAction {
 		this.menuActionEnum = menuActionEnum;
 	}
 	
-	abstract action(data?: {[key: string]: any}): void;
+	abstract action(data?: Record<string, any>): void;
 	
 	menu(items: MenuItem[], showMenu = true, chooseText = "Choose Option"): void {
 		const commandCount: {[command: string]: number} = {};

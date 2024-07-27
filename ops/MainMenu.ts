@@ -8,7 +8,7 @@ export class MainMenu extends MenuAction {
 	command: string = "mm";
 	menuText: string = "Return to Main Menu";
 	
-	action(data?: {[key: string]: any}): void {
+	action(data?: Record<string, any>): void {
 		this.menuSystem.menuHistory.push({menuAction: this.menuActionEnum, data});
 		
 		process.stdout.write(`${cmd.CLS}`);

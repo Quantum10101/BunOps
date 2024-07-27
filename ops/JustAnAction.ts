@@ -8,7 +8,7 @@ export class JustAnAction extends MenuAction {
 	command: string = "j";
 	menuText: string = "Run Just an Action";
 	
-	action(data?: {[key: string]: any}): void {
+	action(data?: Record<string, any>): void {
 		this.menuSystem.data["stuff"] += this.menuSystem.data["stuff"].length - 5;
 		
 		process.stdout.write(`${cmd.CLS}`);
