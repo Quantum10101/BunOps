@@ -19,4 +19,4 @@ const menuSystem = new MenuSystem(
 	{"stuff": "things"}
 );
 
-menuSystem.nextAction(MenuActionEnum.MainMenu);
+menuSystem.nextAction(MenuActionEnum.MainMenu, {"startingData": "123"});

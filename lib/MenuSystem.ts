@@ -1,10 +1,15 @@
 import { MenuAction } from "./MenuAction.ts";
 import { MenuActionEnum } from "../ops/MenuActionEnum.ts";
 
+export type HistoryItem = {
+	menuAction: MenuActionEnum;
+	data?: {[key: string]: any}
+}
+
 export class MenuSystem {
 	menuActions: Record<MenuActionEnum, MenuAction>;
-	firstMenu: undefined|MenuActionEnum;
-	menuHistory: Array<MenuActionEnum> = new Array<MenuActionEnum>();
+	firstMenu: undefined|HistoryItem;
+	menuHistory: Array<HistoryItem> = new Array<HistoryItem>();
 	data: Record<string, any> = {};
 	
 	constructor(menuActions: Record<MenuActionEnum, MenuAction>, data?: Record<string, any>) {
@@ -20,7 +25,7 @@ export class MenuSystem {
 	}
 	
 	nextAction(menuAction: MenuActionEnum, data?: {[key: string]: any}): void {
-		if (this.firstMenu === undefined) this.firstMenu = menuAction;
+		if (this.firstMenu === undefined) this.firstMenu = {menuAction, data};
 		this.menuActions[menuAction].action(data);
 	}
 	
@@ -28,10 +33,12 @@ export class MenuSystem {
 		const lastAction = this.menuHistory.pop();
 		if (lastAction === undefined) {
 			if (this.firstMenu === undefined) throw Error("MenuSystem was set up, but never a call to nextAction");
-			this.nextAction(this.firstMenu, data);
+			if (data === undefined) data = this.firstMenu.data;
+			this.nextAction(this.firstMenu.menuAction, data);
 		}
 		else {
-			this.nextAction(lastAction, data);
+			if (data === undefined) data = lastAction.data;
+			this.nextAction(lastAction.menuAction, data);
 		}
 	}
 }

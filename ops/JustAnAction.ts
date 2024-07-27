@@ -29,7 +29,7 @@ export class JustAnAction extends MenuAction {
 		process.stdout.write(`${cmd.cursor.SHOW}`);
 		
 		//this.menuSystem.nextAction(MenuActionEnum.MainMenu);
-		this.menuSystem.lastAction();
+		this.menuSystem.lastAction({"differentData": "456"});
 	}
 }
 

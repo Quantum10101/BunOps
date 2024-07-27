@@ -8,7 +8,7 @@ export class MenuItem extends MenuAction {
 	menuText: string = "View Menu Item";
 	
 	action(): void {
-		this.menuSystem.menuHistory.push(this.menuActionEnum);
+		this.menuSystem.menuHistory.push({menuAction: this.menuActionEnum});
 		
 		process.stdout.write(`${cmd.CLS}`);
 		process.stdout.write(`${this.title}\n\n`);

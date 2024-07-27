@@ -1,3 +1,4 @@
+import { type HistoryItem } from "../lib/MenuSystem.ts";
 import { MenuActionEnum } from "./MenuActionEnum.ts";
 import { MenuAction } from "../lib/MenuAction.ts";
 import { cmd } from "../lib/cmd.ts";
@@ -7,11 +8,14 @@ export class MainMenu extends MenuAction {
 	command: string = "mm";
 	menuText: string = "Return to Main Menu";
 	
-	action(): void {
-		this.menuSystem.menuHistory.push(this.menuActionEnum);
+	action(data?: {[key: string]: any}): void {
+		this.menuSystem.menuHistory.push({menuAction: this.menuActionEnum, data});
 		
 		process.stdout.write(`${cmd.CLS}`);
 		process.stdout.write(`${this.title}\n\n`);
+		
+		console.log(data);
+		console.log();
 		
 		this.menu([
 			{menuAction: MenuActionEnum.MenuItem, command: "mi"},
