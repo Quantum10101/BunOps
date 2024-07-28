@@ -1,6 +1,6 @@
 import { MenuAction } from "./MenuAction.ts";
 
-export class EmptyAction extends MenuAction {
+export class EmptySpace extends MenuAction {
 	title: string = "";
 	command: string = "";
 	menuText: string = "";

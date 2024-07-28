@@ -22,7 +22,7 @@ export class MainMenu extends MenuAction {
 			{menuAction: MenuActionEnum.JustAnAction, menuText: "do the stuff", data: {"hello": "world"}},
 			{menuAction: MenuActionEnum.MenuItem, command: "o"},
 			{menuAction: MenuActionEnum.MenuItem, command: "o"},
-			{menuAction: MenuActionEnum.Empty},
+			{menuAction: MenuActionEnum.EmptySpace},
 			{menuAction: MenuActionEnum.Exit},
 		]);
 	}

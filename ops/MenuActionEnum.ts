@@ -1,5 +1,5 @@
 export enum MenuActionEnum {
-	Empty = "Empty",
+	EmptySpace = "EmptySpace",
 	Exit = "Exit",
 	LastMenu = "LastMenu",
 	JustAnAction = "JustAnAction",
